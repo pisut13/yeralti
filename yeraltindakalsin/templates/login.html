@@ -1,0 +1,27 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="content-section">   <!-- Bu class Corey'nin('main.css'te yer alıyor) -->
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group" style="color: #444444;">  <!-- Bu class Bootstrap'in -->
+                <legend class="border-bottom mb-4">Yönetim Bölümüne Giriş</legend>
+                <!--İsim bölümü-->
+                <div class="form-group" color= "black">
+                    {{ form.username.label(class="form-control-label") }}
+                    {{ form.username(class="form-control form-control-lg") }}                        
+                </div>
+                <!--Password bölümü-->
+                <div class="form-group" color= "black">
+                    {{ form.password.label(class="form-control-label") }}
+                    {{ form.password(class="form-control form-control-lg") }}                   
+                </div>
+            </fieldset>
+            <!--Submit bölümü-->
+            <div class="form-group" id="imza">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

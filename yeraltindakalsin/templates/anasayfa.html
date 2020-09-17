@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+{% block content %}  
+        <article class="media content-section">
+          <div class="media-body">
+            <h1 class="article-title">Yer Altında Kalsın</h2>
+            <p class="article-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut condimentum in nisl sit amet euismod. Nunc sodales nunc at urna mollis, id ultrices elit porta. Suspendisse laoreet lacinia pharetra. Aliquam erat volutpat. Sed pellentesque scelerisque ex, nec consequat eros gravida quis. Phasellus sagittis viverra leo, in semper nulla facilisis quis. Pellentesque efficitur eget nibh sit amet posuere. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed facilisis tincidunt lacinia. Duis in tellus at diam placerat semper. Aenean tincidunt felis in augue luctus, non commodo nulla vulputate. Nullam tincidunt tellus a justo eleifend porta. Proin vulputate pulvinar tristique. Duis sagittis, lorem vel egestas vestibulum, nisi metus accumsan nisl, quis faucibus enim neque non ante. Nulla neque diam, semper sed consectetur auctor, consequat et mauris. Nunc arcu felis, maximus id urna a, suscipit efficitur dolor.
+              Suspendisse consequat nibh quis scelerisque pharetra. Nulla facilisi. Aliquam erat volutpat. Etiam auctor ligula at lorem facilisis, ultrices porta ex condimentum. Curabitur in nisi non velit eleifend suscipit eget a nulla. Nulla sed vulputate dui. Vestibulum tincidunt accumsan diam, ac ornare sem sollicitudin vitae. Suspendisse mi orci, vulputate a lacinia sed, ullamcorper at leo. Maecenas pellentesque scelerisque risus sed elementum.
+              Curabitur mattis volutpat ligula et congue. Sed suscipit massa enim, at faucibus lacus varius vel. Curabitur pretium lorem eu vestibulum feugiat. Integer at mattis mauris. Etiam sed ornare lorem. Nam vehicula eros bibendum, vulputate mi ut, tempor urna. Nam sem ipsum, consectetur non libero non, sollicitudin vestibulum justo. Nam vitae est ex. Vestibulum hendrerit quam sed tellus mollis aliquam. Nunc iaculis neque nec tortor sagittis, ac blandit sapien mollis. Aenean semper ipsum tempus urna pretium, vehicula dictum sem imperdiet.
+              Sed ac ex eu urna fringilla efficitur eget ac nibh. Pellentesque malesuada pharetra ligula, eget malesuada augue sodales euismod. Aenean convallis, lorem ornare cursus consectetur, arcu erat scelerisque nibh, ac scelerisque lacus massa ut turpis. Mauris ut posuere felis, at luctus orci. Donec elementum non mi in tempus. Pellentesque ut libero ac nisl aliquam gravida. Sed facilisis nulla sed tincidunt venenatis. Suspendisse consequat sagittis nulla ac ullamcorper. Proin sed enim laoreet, aliquam ex ac, sollicitudin arcu. Sed tincidunt lorem erat, sed scelerisque risus tempus et. Integer nulla odio, venenatis vitae tempor eget, consectetur sit amet lectus. Maecenas mi nisl, mattis a ullamcorper at, sagittis a nibh. In euismod erat vitae erat tristique malesuada.
+              Sed interdum cursus purus ac rhoncus. Nullam a justo eros. Cras sagittis tincidunt tincidunt. Aliquam id ex posuere, tincidunt dui id, sagittis augue. Nulla ac vestibulum leo, ut tristique ligula. Sed sit amet faucibus ligula, eget tempor urna. Vestibulum tellus lorem, pharetra quis tincidunt et, lobortis et quam. Proin pulvinar metus vitae sapien hendrerit elementum. Donec lobortis massa at arcu ornare facilisis. Pellentesque eu rhoncus risus, nec mattis ligula. Quisque sagittis, nisi nec molestie faucibus, arcu nisl condimentum neque, ut feugiat nulla eros et odio. Suspendisse convallis augue vel lectus venenatis, in dapibus enim finibus. Pellentesque egestas est sollicitudin molestie iaculis. Mauris placerat lobortis sollicitudin. Mauris rhoncus mauris nunc, at euismod libero vestibulum in. Integer non elementum ex, in molestie lacus.
+            </p>
+          </div>
+        </article>
+        <!--<article class="media content-section">
+          <div class="media-body">
+            <h2 class="article-title">Kampanyaya Katıl</h2>-->
+              <div class="content-section">   <!-- Bu class Corey'nin('main.css'te yer alıyor) -->
+                <form method="POST" action="">
+                    {{ form.hidden_tag() }}
+                    <fieldset class="form-group" style="color: #444444;">  <!-- Bu class Bootstrap'in -->
+                        <legend class="border-bottom mb-4">Kampanyaya Katılın</legend>
+                        <!--İsim bölümü-->
+                        <div class="form-group" color= "black">
+                            {{ form.name.label(class="form-control-label") }} <small style="color:red;">(Gerekli - Necessary)</small>
+                            {% if form.name.errors %}
+                                {{ form.name(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.name.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.name(class="form-control form-control-lg") }}
+                            {% endif %}                    
+                        </div>
+                        <!--Ülke bölümü-->
+                        <div class="form-group" color= "black">
+                            {{ form.country.label(class="form-control-label") }} <small style="color:red;">(Gerekli - Necessary)</small>
+                            {% if form.country.errors %}
+                                {{ form.country(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.country.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.country(class="form-control form-control-lg") }}
+                            {% endif %}                    
+                        </div>
+                        <!--Şehir bölümü-->
+                        <div class="form-group" color= "black">
+                            {{ form.city.label(class="form-control-label") }} <small style="color:red;">(Gerekli - Necessary)</small>
+                            {% if form.city.errors %}
+                                {{ form.city(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.city.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.city(class="form-control form-control-lg") }}
+                            {% endif %}                    
+                        </div>
+                        <!--Kurum bölümü-->
+                        <div class="form-group">
+                          {{ form.organization.label(class="form-control-label") }}
+                          {% if form.organization.errors %}
+                              {{ form.organization(class="form-control form-control-lg is-invalid") }}
+                              <div class="invalid-feedback">
+                                  {% for error in form.organization.errors %}
+                                      <span>{{ error }}</span>
+                                  {% endfor %}
+                              </div>
+                          {% else %}
+                              {{ form.organization(class="form-control form-control-lg") }}
+                          {% endif %}
+                        </div>
+                        <!--Meslek bölümü-->
+                        <div class="form-group">
+                          {{ form.occupation.label(class="form-control-label") }}
+                          {% if form.occupation.errors %}
+                              {{ form.occupation(class="form-control form-control-lg is-invalid") }}
+                              <div class="invalid-feedback">
+                                  {% for error in form.occupation.errors %}
+                                      <span>{{ error }}</span>
+                                  {% endfor %}
+                              </div>
+                          {% else %}
+                              {{ form.occupation(class="form-control form-control-lg") }}
+                          {% endif %}
+                        </div>
+                        <!--Email bölümü-->
+                        <div class="form-group">
+                            {{ form.email.label(class="form-control-label") }}
+                            {% if form.email.errors %}
+                                {{ form.email(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.email(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+                    </fieldset>
+                    <!--Submit bölümü-->
+                    <div class="form-group" id="imza">
+                        {{ form.submit(class="btn btn-outline-info") }}
+                    </div>
+                </form>
+            </div>
+          <!--</div>
+        </article>-->
+{% endblock content %}

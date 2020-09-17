@@ -1,0 +1,36 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="content-section">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">İsim</th>
+                <th scope="col">Ülke</th>
+                <th scope="col">Şehir</th>
+                <th scope="col">Kurum</th>
+                <th scope="col">Meslek</th>
+                <th scope="col">Email</th>
+                <th scope="col">Tarih</th>
+                <th scope="col">IP</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for imza in imzalar %}
+                <tr>
+                    <td><small>{{ imza.name }}</small></td>
+                    <td><small>{{ imza.country }}</small></td>
+                    <td><small>{{ imza.city }}</small></td>
+                    <td><small>{{ imza.organization }}</small></td>
+                    <td><small>{{ imza.occupation }}</small></td>
+                    <td><small>{{ imza.email }}</small></td>
+                    <td><small>{{ imza.date_sign.strftime("%d.%m.%Y - %H:%M")}}</small></td>
+                    <td><small>{{ imza.ip_address }}</small></td>
+                    <td><a href="/delete/{{ imza.id }}"><small>Sil</small></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

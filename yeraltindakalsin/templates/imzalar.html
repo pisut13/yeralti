@@ -1,0 +1,27 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="content-section">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">İsim (Name)</th>
+                <th scope="col">Kurum (Organization)</th>
+                <th scope="col">Meslek (Occupation)</th>
+                <th scope="col">Şehir (City)</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for imza in imzalar %}
+                <tr>
+                    <td>{{ imza.name }}</td>
+                    <td>{{ imza.organization }}</td>
+                    <td>{{ imza.occupation }}</td>
+                    <td>{{ imza.city }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
